@@ -2,9 +2,9 @@ RewriteEngine On
 Options -MultiViews
 RewriteBase /
 
-RewriteRule ^NezAI$ NezAI.html [L]
-
 RewriteRule ^main$ index.html [L]
+
+RewriteRule ^NezAI$ NezAI.html [L]
 
 RewriteRule ^card$ card.html [L]
 
