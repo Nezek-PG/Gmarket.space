@@ -1,4 +1,5 @@
 RewriteEngine On
+Options -MultiViews
 RewriteBase /
 
 RewriteRule ^NezAI$ NezAI.html [L]
