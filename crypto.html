@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - NezAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./crypto.js" defer></script>
+  <link rel="stylesheet" href="./crypto.css">
+  <script src="./dev.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="webp/logo gmarket.webp">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+
+  </style>
+</head>
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden min-h-screen relative">
+
+  <!-- Background grid -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="w-full h-full bg-[#0a0a0a] bg-[linear-gradient(#2a2a2a_1px,transparent_1px),linear-gradient(90deg,#2a2a2a_1px,transparent_1px)] [background-size:60px_60px] opacity-70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/95"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-800/70 nav-transition">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+
+      <div class="text-2xl sm:text-3xl font-extrabold tracking-tight">NezAI</div>
+      &nbsp;
+
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/main#features" class="hover:text-[#0078D7] transition-colors">Features</a>
+        <a href="/main#pricing" class="hover:text-[#0078D7] transition-colors">Pricing</a>
+        <a href="/main#hardware" class="hover:text-[#0078D7] transition-colors">Hardware</a>
+        <a href="/main#reviews1" class="hover:text-[#0078D7] transition-colors">Reviews</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button  onclick="window.location.href='/NezAI'" class="hidden sm:block px-5 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full text-sm transition-colors">Purchase</button>
+        <button onclick="window.open('https://discord.gg/cAjGgDWQkv', '_blank', 'noopener,noreferrer')" class="shine-btn px-6 sm:px-8 py-2.5 bg-gradient-to-r from-white to-gray-100 text-black rounded-full font-semibold text-sm sm:text-base flex items-center gap-2 hover:scale-105 transition-all duration-300">
+          Discord<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile sidenav -->
+  <div id="mySidenav" class="fixed top-0 right-0 h-full w-0 bg-zinc-900/95 backdrop-blur-xl z-50 overflow-x-hidden transition-all duration-500 flex flex-col items-center pt-20 gap-10 text-xl">
+    <a href="javascript:void(0)" class="absolute top-6 right-8 text-5xl text-[#0078D7]" onclick="document.getElementById('mySidenav').style.width='0'">&times;</a>
+    <a href="/main">Main</a>
+    <a href="/shop">Products</a>
+    <a href="/main#review">Reviews</a>
+    <a href="/main#about">About us</a>
+    <a href="https://discord.com/invite/u3MD3yHw5w" target="_blank">Discord</a>
+  </div>
+
+  <!-- Main content -->
+  <main class="relative z-10 pt-28 pb-20 px-6 md:px-8 max-w-4xl mx-auto">
+    <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 md:p-12 backdrop-blur-md shadow-2xl shadow-black/50 animate-float">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+        <h2 class="text-4xl md:text-5xl font-black text-center md:text-left">Checkout</h2>
+        <div id="statusIndicator" class="status-badge flex items-center gap-3 bg-zinc-950/70 px-5 py-2.5 rounded-full border border-zinc-700 text-sm font-semibold">
+          <span class="dot w-3 h-3 rounded-full bg-red-500 shadow-lg shadow-red-500/50 transition-all duration-300"></span>
+          <span class="status-text text-zinc-400">Enter Gmail</span>
+        </div>
+      </div>
+
+      <form class="space-y-10" onsubmit="return false;">
+        <!-- Email -->
+        <div>
+          <label class="block text-zinc-300 text-lg font-medium mb-3">Email (Gmail required)</label>
+          <input 
+            type="email" 
+            name="email" 
+            required 
+            placeholder="yourname@gmail.com" 
+            class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-6 py-4 text-white placeholder-zinc-500 focus:border-[#0078D7] focus:ring-2 focus:ring-[#0078D7]/30 outline-none transition-all"
+          />
+        </div>
+
+        <!-- Order Summary -->
+        <div class="bg-zinc-950/70 border border-zinc-800 rounded-2xl p-6">
+          <h3 class="text-2xl font-bold mb-6 text-center">Order Summary</h3>
+          <div class="space-y-4 text-zinc-300">
+            <div class="flex justify-between">
+              <span>Product:</span>
+              <strong id="checkoutProductName" class="text-white">—</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Plan:</span>
+              <strong id="checkoutProductPlan" class="text-white">—</strong>
+            </div>
+            <div class="flex justify-between text-xl font-bold border-t border-zinc-800 pt-4 mt-4">
+              <span>Total:</span>
+              <strong id="checkoutProductPrice" class="text-[#0078D7]">€0</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crypto selection -->
+        <div class="text-center">
+          <h3 class="text-2xl font-bold mb-6">Select Cryptocurrency</h3>
+          <div class="grid grid-cols-3 gap-6">
+            <button type="button" class="crypto-option bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-[#0078D7] hover:shadow-[0_0_20px_rgba(0,120,215,0.2)] transition-all disabled:opacity-40 disabled:cursor-not-allowed" data-crypto="BTC" disabled>
+              <i class="fa-brands fa-bitcoin text-5xl text-[#f7931a]"></i>
+              <span class="font-bold text-xl">BTC</span>
+            </button>
+            <button type="button" class="crypto-option bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-[#0078D7] hover:shadow-[0_0_20px_rgba(0,120,215,0.2)] transition-all disabled:opacity-40 disabled:cursor-not-allowed" data-crypto="LTC" disabled>
+              <i class="fa-solid fa-coins text-5xl text-[#a6a6a6]"></i>
+              <span class="font-bold text-xl">LTC</span>
+            </button>
+            <button type="button" class="crypto-option bg-zinc-950 border-2 border-zinc-800 rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-[#0078D7] hover:shadow-[0_0_20px_rgba(0,120,215,0.2)] transition-all disabled:opacity-40 disabled:cursor-not-allowed" data-crypto="ETH" disabled>
+              <i class="fa-brands fa-ethereum text-5xl text-[#627eea]"></i>
+              <span class="font-bold text-xl">ETH</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Wallet info -->
+        <div id="walletBox" class="bg-zinc-950/70 border border-zinc-800 rounded-2xl p-6 hidden">
+          <p class="text-zinc-400 text-center mb-4">Send the exact amount to this address:</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div id="walletAddress" class="bg-black border border-zinc-700 rounded-xl px-5 py-4 font-mono text-[#0078D7] flex-1 break-all text-center sm:text-left">—</div>
+            <button id="copyBtn" class="shine-btn px-8 py-4 bg-[#0078D7] hover:bg-[#0066b8] rounded-xl font-bold transition-all shadow-lg shadow-[#0078D7]/30">Copy</button>
+          </div>
+          <div class="mt-6 space-y-2 text-sm text-zinc-400">
+            <div class="flex justify-between">
+              <span>Amount:</span>
+              <span><strong id="cryptoAmount">—</strong> <span id="cryptoSymbol">—</span></span>
+            </div>
+            <div class="flex justify-between">
+              <span>EUR → Crypto rate:</span>
+              <span id="eurRateTxt">—</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Last update:</span>
+              <span id="lastUpdateTxt">—</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-zinc-500 text-sm mt-8">
+          Remember to take a <strong>screenshot</strong> of your transaction.<br/>
+          If no delivery in short time → open <a href="https://discord.gg/u3MD3yHw5w" target="_blank" class="text-[#0078D7] hover:underline">Discord ticket</a>.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Disclaimer -->
+  <div class="relative z-10 bg-zinc-900/70 border-t border-b border-zinc-800 py-10 px-6 text-center">
+    <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6">
+      <img src="webp/omg.webp" alt="Disclaimer" class="h-20 w-20 object-contain">
+      <div class="text-zinc-400 text-sm">
+        <strong class="text-white">Disclaimer:</strong><br/>
+        Gmarket does not reverse engineer third-party hardware or software and does not manipulate copyrighted or intellectual property owned by third-party software or publishers.
+      </div>
+    </div>
+  </div>
+
+  <footer class="relative z-10 bg-black border-t border-zinc-800 py-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      <div class="mb-4 flex flex-wrap justify-center gap-6">
+        <span>CRYPTOCURRENCY</span>
+        <span>PAYSAFECARD</span>
+        <span>PAYPAL</span>
+        <span>CREDIT CARD</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div><strong>Gmarket</strong> © 2025</div>
+        <div class="flex gap-6">
+          <a href="/terms" class="hover:text-[#0078D7]">Terms of Service</a>
+          <a href="/private" class="hover:text-[#0078D7]">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>

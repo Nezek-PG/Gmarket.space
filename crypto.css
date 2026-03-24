@@ -1,0 +1,23 @@
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(transparent, rgba(255,255,255,0.25), transparent);
+      transform: translateX(-100%) rotate(45deg);
+      transition: transform 0.7s;
+    }
+    .shine-btn:hover::before {
+      transform: translateX(100%) rotate(45deg);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float { animation: float 7s ease-in-out infinite; }

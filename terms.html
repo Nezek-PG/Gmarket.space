@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service - NezAI | Gmarket</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="webp/logo gmarket.webp">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%) rotate(45deg);
+      transition: transform 0.8s ease;
+    }
+    .shine-btn:hover::before {
+      transform: translateX(100%) rotate(45deg);
+    }
+    .glow-blue { box-shadow: 0 0 30px rgba(0, 120, 215, 0.3); }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden min-h-screen relative">
+
+  <!-- Tło grid + gradient (jak na NezAI) -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="w-full h-full bg-[#0a0a0a] bg-[linear-gradient(#222_1px,transparent_1px),linear-gradient(90deg,#222_1px,transparent_1px)] [background-size:70px_70px] opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/70 to-black/95"></div>
+  </div>
+
+  <!-- Navbar (identyczny jak na stronie produktu) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/85 backdrop-blur-xl border-b border-zinc-800/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-[#0078D7]">NezAI</span>
+      </div>
+
+      <div class="hidden md:flex items-center gap-9 text-base font-medium">
+        <a href="/main" class="hover:text-[#0078D7] transition-colors">Main</a>
+        <a href="/shop" class="hover:text-[#0078D7] transition-colors">Products</a>
+        <a href="/main#review" class="hover:text-[#0078D7] transition-colors">Reviews</a>
+        <a href="/main#about" class="hover:text-[#0078D7] transition-colors">About us</a>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <a href="https://discord.gg/cAjGgDWQkv" target="_blank" class="shine-btn px-7 py-3 bg-gradient-to-r from-[#0078D7] to-[#004a8c] rounded-full font-semibold text-base flex items-center gap-2 hover:scale-105 transition-all shadow-xl shadow-[#0078D7]/40">
+          Join Discord <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+        <span class="md:hidden text-5xl cursor-pointer text-[#0078D7]" onclick="document.getElementById('mySidenav').style.width='280px'">&#9776;</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile sidenav -->
+  <div id="mySidenav" class="sidenav fixed top-0 right-0 h-full w-0 bg-zinc-900/95 backdrop-blur-2xl z-50 overflow-x-hidden transition-all duration-500 ease-in-out">
+    <a href="javascript:void(0)" class="closebtn absolute top-6 right-8 text-6xl text-[#0078D7]" onclick="document.getElementById('mySidenav').style.width='0'">×</a>
+    <div class="flex flex-col items-center gap-10 mt-28 text-2xl font-medium">
+      <a href="/main">Main</a>
+      <a href="/shop">Products</a>
+      <a href="/main#review">Reviews</a>
+      <a href="/main#about">About us</a>
+      <a href="https://discord.com/invite/u3MD3yHw5w" target="_blank">Discord</a>
+    </div>
+  </div>
+
+  <!-- Główna treść Terms -->
+  <main class="relative z-10 pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#0078D7]">Terms of Service</h1>
+      <p class="text-xl text-zinc-400 max-w-3xl mx-auto">
+        Last updated: February 14, 2026<br>
+        These Terms govern your purchase, license, and use of <strong>NezAI</strong> software provided by Gmarket.
+      </p>
+    </div>
+
+    <div class="space-y-12">
+
+      <!-- Intro Card -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg glow-blue">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">1. Acceptance of Terms</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6 text-lg">
+          By purchasing, downloading, installing, or using NezAI ("the Software"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not purchase or use the Software.
+        </p>
+        <p class="text-zinc-300 leading-relaxed">
+          You must be at least 18 years old or have legal guardian consent to use the Software.
+        </p>
+      </div>
+
+      <!-- License -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">2. License Grant</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6 text-lg">
+          Upon full payment, Gmarket grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to use one instance of NezAI for personal use only on the devices and for the duration specified in your purchase.
+        </p>
+        <p class="text-zinc-300 leading-relaxed">
+          The Software is licensed — not sold. All rights, title, and interest remain with Gmarket.
+        </p>
+      </div>
+
+      <!-- Payment & Refunds -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">3. Payment & No Refunds</h2>
+        <div class="space-y-4 text-zinc-300 text-lg">
+          <p>All payments are final and non-refundable.</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Due to the digital nature of the Software (instant license key / slot delivery), <strong>no refunds</strong> are provided once access is granted.</li>
+            <li>All sales are final — no exceptions, even for dissatisfaction, detection, or ban in games.</li>
+            <li>Prices are in EUR and may change without notice.</li>
+          </ul>
+          <p class="text-zinc-400 mt-4 text-base italic">
+            You acknowledge that using the Software carries inherent risks (e.g., account bans) and accept full responsibility.
+          </p>
+        </div>
+      </div>
+
+      <!-- Prohibited Use -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">4. Prohibited Use & Restrictions</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6 text-lg">You agree NOT to:</p>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 text-base">
+          <li>Reverse engineer, decompile, disassemble, modify, or create derivative works of NezAI.</li>
+          <li>Distribute, share, rent, lease, sell, or sublicense the license key / Software.</li>
+          <li>Use NezAI in violation of any game’s terms of service or applicable laws.</li>
+          <li>Attempt to circumvent anti-cheat systems in ways not intended by the Software’s design.</li>
+          <li>Remove or alter any copyright, trademark, or proprietary notices.</li>
+        </ul>
+        <p class="text-zinc-300 mt-6 leading-relaxed">
+          Any violation results in immediate license revocation without refund and possible legal action.
+        </p>
+      </div>
+
+      <!-- AI & Detection Disclaimers -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">5. AI & Detection Disclaimer</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6 text-lg">
+          NezAI uses external AI object detection and does not read or modify game memory/files. However:
+        </p>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 text-base">
+          <li>We do NOT guarantee 100% undetectability forever — anti-cheats evolve.</li>
+          <li>Use is at your own risk. Gmarket is not liable for bans, account loss, or any consequences.</li>
+          <li>The Software may produce inaccurate detections or false positives — verify outputs yourself.</li>
+        </ul>
+      </div>
+
+      <!-- Support & Updates -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">6. Support, Updates & Termination</h2>
+        <div class="space-y-4 text-zinc-300 text-lg">
+          <p>Updates and support are provided on a best-effort basis via Discord.</p>
+          <p>We may terminate your license at any time for breach of these Terms — no refund will be issued.</p>
+        </div>
+      </div>
+
+      <!-- Liability -->
+      <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-10 backdrop-blur-lg">
+        <h2 class="text-4xl font-black mb-6 text-[#0078D7]">7. Limitation of Liability</h2>
+        <p class="text-zinc-300 leading-relaxed text-lg">
+          To the maximum extent permitted by law, Gmarket shall not be liable for any indirect, incidental, consequential, or punitive damages arising from use of NezAI — even if advised of such possibility.
+        </p>
+        <p class="text-zinc-300 mt-4 leading-relaxed">
+          Our total liability shall not exceed the amount you paid for your license.
+        </p>
+      </div>
+
+
+
+    </div>
+
+    <div class="text-center mt-16 text-zinc-500 text-sm">
+      <p>Questions? Join our <a href="https://discord.gg/cAjGgDWQkv" target="_blank" class="text-[#0078D7] hover:underline">Discord</a>.</p>
+    </div>
+  </main>
+
+  <!-- Footer (jak na NezAI) -->
+  <footer class="relative z-10 bg-black border-t border-zinc-800 py-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      <div class="mb-4 flex flex-wrap justify-center gap-6">
+        <span>CRYPTOCURRENCY</span>
+        <span>PAYSAFECARD</span>
+        <span>PAYPAL</span>
+        <span>CREDIT CARD</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div><strong>Gmarket</strong> © 2025</div>
+        <div class="flex gap-6">
+          <a href="/terms" class="hover:text-[#0078D7]">Terms of Service</a>
+          <a href="/private" class="hover:text-[#0078D7]">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

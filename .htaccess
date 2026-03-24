@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^NezAI$ NezAI.html [L]
+
+RewriteRule ^main$ index.html [L]
+
+RewriteRule ^card$ card.html [L]
+
+RewriteRule ^card$ card.html [L]
+
+RewriteRule ^crypto$ crypto.html [L]
+
+RewriteRule ^terms$ terms.html [L]
+
+RewriteRule ^private$ private.html [L]
+
+
+<IfModule mod_headers.c>
+
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>

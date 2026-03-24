@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NezAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="webp/logo gmarket.webp">
+  <script src="./dev.js" defer></script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Dodaj do style.css lub tutaj w <style> animacje shine / float itp. -->
+  <style>
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%) rotate(45deg);
+      transition: transform 0.7s;
+    }
+    .shine-btn:hover::before {
+      transform: translateX(100%) rotate(45deg);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden min-h-screen">
+
+  <!-- Background grid (jak w NezAI) -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="w-full h-full bg-[#0a0a0a] bg-[linear-gradient(#2a2a2a_1px,transparent_1px),linear-gradient(90deg,#2a2a2a_1px,transparent_1px)] [background-size:60px_60px] opacity-70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/70 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">NezAI</span>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/main" class="hover:text-[#0078D7] transition-colors">Main</a>
+        <a href="/shop" class="hover:text-[#0078D7] transition-colors">Products</a>
+        <a href="/main#review" class="hover:text-[#0078D7] transition-colors">Reviews</a>
+        <a href="/main#about" class="hover:text-[#0078D7] transition-colors">About us</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="https://discord.gg/cAjGgDWQkv" target="_blank" class="shine-btn px-6 py-2.5 bg-gradient-to-r from-[#0078D7] to-[#005a9e] rounded-full font-semibold text-sm sm:text-base flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-[#0078D7]/30">
+          Discord <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <!-- Mobile menu trigger -->
+        <span class="md:hidden text-4xl cursor-pointer text-[#0078D7]" onclick="document.getElementById('mySidenav').style.width='250px'">&#9776;</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile sidenav -->
+  <div id="mySidenav" class="sidenav fixed top-0 right-0 h-full w-0 bg-zinc-900/95 backdrop-blur-xl z-50 overflow-x-hidden transition-all duration-500">
+    <a href="javascript:void(0)" class="closebtn absolute top-5 right-8 text-5xl text-[#0078D7]" onclick="document.getElementById('mySidenav').style.width='0'">&times;</a>
+    <div class="flex flex-col items-center gap-8 mt-20 text-xl">
+      <a href="/main">Main</a>
+      <a href="/shop">Products</a>
+      <a href="/main#review">Reviews</a>
+      <a href="/main#about">About us</a>
+      <a href="https://discord.com/invite/u3MD3yHw5w" target="_blank">Discord</a>
+    </div>
+  </div>
+
+  <!-- Główna treść produktu -->
+  <main class="relative z-10 pt-28 pb-20 px-6 md:px-8 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <!-- Lewa strona – obraz + opis -->
+      <div class="space-y-10">
+        <div class="relative rounded-3xl overflow-hidden border-2 border-zinc-800 shadow-2xl shadow-black/50 animate-float">
+          <img id="mainImage" src="webp/NezAI.webp" alt="NezAI" class="w-full h-auto object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="bg-zinc-900/70 border border-zinc-800 rounded-3xl p-8 backdrop-blur-sm">
+          <h2 class="text-4xl font-black mb-6">NezAI <span class="text-[#0078D7]">Premium</span></h2>
+          <p class="text-zinc-300 leading-relaxed mb-6">
+            Advanced AI object detection identifies enemies in real time — <strong>no game data reading or modification</strong>. Future-proof and completely undetectable.
+          </p>
+          <p class="text-zinc-300 leading-relaxed mb-8">
+            Perfect aim assist & tracking for competitive play. Easy setup, video guide included.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800">
+              <span class="block text-zinc-400">Compatibility</span>
+              <span class="text-white font-semibold">Win 10/11</span>
+            </div>
+            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800">
+              <span class="block text-zinc-400">CPU</span>
+              <span class="text-white font-semibold">Intel & AMD</span>
+            </div>
+            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800">
+              <span class="block text-zinc-400">GPU</span>
+              <span class="text-white font-semibold">All Brands</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prawa strona – selector + buy -->
+      <div class="space-y-8">
+        <div class="bg-zinc-900/80 border border-zinc-800 rounded-3xl p-8 backdrop-blur-md shadow-xl">
+          <div class="flex flex-wrap gap-3 mb-8">
+            <div class="flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium">
+              <span class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
+              Status: Undetected
+            </div>
+            <div class="bg-zinc-800/80 px-4 py-2 rounded-full text-sm">External</div>
+            <div class="bg-zinc-800/80 px-4 py-2 rounded-full text-sm">Build: v1.4.3</div>
+          </div>
+
+          <div class="plan-selector-buttons flex flex-wrap gap-3 mb-10">
+            <button class="plan-btn px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-full font-medium transition-all active:scale-95 data-[active=true]:bg-[#0078D7] data-[active=true]:text-white data-[active=true]:shadow-lg data-[active=true]:shadow-[#0078D7]/40" data-plan="week" data-price="€15" data-active="true">1 WEEK</button>
+            <button class="plan-btn px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-full font-medium transition-all active:scale-95 data-[active=true]:bg-[#0078D7] data-[active=true]:text-white data-[active=true]:shadow-lg data-[active=true]:shadow-[#0078D7]/40" data-plan="month" data-price="€30">1 MONTH</button>
+            <button class="plan-btn px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-full font-medium transition-all active:scale-95 data-[active=true]:bg-[#0078D7] data-[active=true]:text-white data-[active=true]:shadow-lg data-[active=true]:shadow-[#0078D7]/40" data-plan="lifetime" data-price="€90">LIFETIME</button>
+          </div>
+
+          <div class="bg-zinc-950/70 border border-zinc-800 rounded-2xl p-6 mb-8">
+            <div class="text-lg font-semibold mb-4">Order Summary</div>
+            <div class="flex justify-between mb-2 text-zinc-300">
+              <span>Product:</span> <span class="text-white">NezAI Premium</span>
+            </div>
+            <div class="flex justify-between mb-2 text-zinc-300">
+              <span>Plan:</span> <span id="summaryPlan" class="text-white">1 Week</span>
+            </div>
+            <div class="flex justify-between text-xl font-bold mt-4">
+              <span>Total:</span> <span id="summaryPrice" class="text-[#0078D7]">€15</span>
+            </div>
+          </div>
+
+          <label class="flex items-center gap-3 mb-6 cursor-pointer">
+            <input type="checkbox" id="termsCheckbox" class="w-5 h-5 accent-[#0078D7]">
+            <span class="text-zinc-300 text-sm">
+              I accept the <a href="terms.html" target="_blank" class="text-[#0078D7] hover:underline">Terms of Service</a> and confirm digital product nature.
+            </span>
+          </label>
+
+          <button id="buyNowBtn" class="shine-btn w-full py-5 bg-gradient-to-r from-[#0078D7] to-[#005a9e] rounded-2xl font-bold text-lg shadow-xl shadow-[#0078D7]/30 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            PURCHASE NOW
+          </button>
+
+          <p class="text-center text-zinc-500 text-sm mt-6">
+            Need help? <a href="https://discord.gg/cAjGgDWQkv" target="_blank" class="text-[#0078D7] hover:underline">Join Discord</a> for manual payment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Payment Modal -->
+  <div id="paymentMethodModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 max-w-md w-full mx-4 relative backdrop-blur-md">
+      <button id="closePaymentModal" class="absolute top-4 right-6 text-3xl text-zinc-400 hover:text-white">&times;</button>
+      
+      <h2 class="text-3xl font-black mb-3 text-center">Select Payment</h2>
+      <p class="text-zinc-400 text-center mb-8">Choose your preferred method</p>
+
+      <div class="grid gap-6">
+        <button id="cryptoPaymentBtn" class="bg-zinc-950 border-2 border-zinc-800 hover:border-[#0078D7] rounded-2xl p-6 text-left transition-all group">
+          <div class="flex items-center gap-4 mb-3">
+            <i class="fa-solid fa-coins text-4xl text-[#0078D7]"></i>
+            <div>
+              <h3 class="text-xl font-bold">Cryptocurrency</h3>
+              <p class="text-zinc-400 text-sm">BTC, ETH, LTC & more</p>
+            </div>
+          </div>
+          <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full">Instant</span>
+        </button>
+
+        <button id="cardPaymentBtn" class="bg-zinc-950 border-2 border-zinc-800 hover:border-[#0078D7] rounded-2xl p-6 text-left transition-all group">
+          <div class="flex items-center gap-4 mb-3">
+            <i class="fa-solid fa-credit-card text-4xl text-[#0078D7]"></i>
+            <div>
+              <h3 class="text-xl font-bold">Card / PayPal</h3>
+              <p class="text-zinc-400 text-sm">Secure & fast</p>
+            </div>
+          </div>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full">Protected</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="relative z-10 bg-black border-t border-zinc-800 py-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      <div class="mb-4 flex flex-wrap justify-center gap-6">
+        <span>CRYPTOCURRENCY</span>
+        <span>PAYSAFECARD</span>
+        <span>PAYPAL</span>
+        <span>CREDIT CARD</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div><strong>Gmarket</strong> © 2025</div>
+        <div class="flex gap-6">
+          <a href="/terms" class="hover:text-[#0078D7]">Terms of Service</a>
+          <a href="/private" class="hover:text-[#0078D7]">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Twój istniejący JS + drobne poprawki -->
+  <script>
+    const priceMap = { week:'€15', month:'€30', '3xmonth':'€50', lifetime:'€90' };
+    const planNameMap = { week:'1 Week', month:'1 Month', '3xmonth':'3 Months', lifetime:'Lifetime' };
+    
+    let selectedPlan = 'week';
+    let selectedPrice = '€15';
+
+    const planBtns = document.querySelectorAll('.plan-btn');
+    const summaryPlan = document.getElementById('summaryPlan');
+    const summaryPrice = document.getElementById('summaryPrice');
+
+    planBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        planBtns.forEach(b => b.dataset.active = 'false');
+        btn.dataset.active = 'true';
+        
+        selectedPlan = btn.dataset.plan;
+        selectedPrice = btn.dataset.price;
+        
+        summaryPlan.textContent = planNameMap[selectedPlan];
+        summaryPrice.textContent = selectedPrice;
+      });
+    });
+
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    const buyNowBtn = document.getElementById('buyNowBtn');
+
+    termsCheckbox.addEventListener('change', () => {
+      buyNowBtn.disabled = !termsCheckbox.checked;
+    });
+
+    const paymentModal = document.getElementById('paymentMethodModal');
+    const closePaymentModal = document.getElementById('closePaymentModal');
+    const cryptoPaymentBtn = document.getElementById('cryptoPaymentBtn');
+    const cardPaymentBtn = document.getElementById('cardPaymentBtn');
+
+    buyNowBtn.addEventListener('click', () => {
+      paymentModal.classList.remove('hidden');
+      paymentModal.classList.add('flex');
+    });
+
+    closePaymentModal.addEventListener('click', () => {
+      paymentModal.classList.add('hidden');
+      paymentModal.classList.remove('flex');
+    });
+
+    paymentModal.addEventListener('click', (e) => {
+      if (e.target === paymentModal) {
+        paymentModal.classList.add('hidden');
+        paymentModal.classList.remove('flex');
+      }
+    });
+
+    cryptoPaymentBtn.addEventListener('click', () => {
+      const plan = selectedPlan;
+      const price = selectedPrice;
+      window.location.href = `/crypto?product=NezAI%20Premium&plan=${encodeURIComponent(planNameMap[plan])}&price=${encodeURIComponent(price)}`;
+    });
+
+    cardPaymentBtn.addEventListener('click', () => {
+      const plan = selectedPlan;
+      const price = selectedPrice;
+      window.location.href = `/card?product=NezAI%20Premium&plan=${encodeURIComponent(planNameMap[plan])}&price=${encodeURIComponent(price)}`;
+    });
+  </script>
+</body>
+</html>
