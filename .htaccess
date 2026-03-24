@@ -3,7 +3,7 @@ RewriteBase /
 
 RewriteRule ^NezAI$ NezAI.html [L]
 
-RewriteRule ^main$ index.html [L]
+RewriteRule ^main/?$ index.html [L,NC]
 
 RewriteRule ^card$ card.html [L]
 
